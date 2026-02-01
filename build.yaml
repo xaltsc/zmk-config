@@ -20,7 +20,6 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: corne_left nice_view_adapter nice_view
+    shield: corne_left nice_view_adapter nice_epaper
   - board: nice_nano_v2
-    shield: corne_right nice_view_adapter nice_view
-    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+    shield: corne_right nice_view_adapter nice_epaper
