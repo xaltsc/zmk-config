@@ -9,6 +9,28 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+        combos {
+                compatible = "zmk,combos";
+                combo_esc {
+                  timeout-ms = <50>;
+                  key-positions = <20 21>;
+                  bindings = <&kp ESC>;
+                  layers = <0 2>;
+                };
+                combo_paste {
+                  timeout-ms = <50>;
+                  key-positions = <4 5>;
+                  bindings = <&kp K_PASTE>;
+                  layers = <0>;
+                };
+                combo_capsword {
+                  // TODO: adapt alnum list for ergol
+                  timeout-ms = <50>;
+                  key-positions = <13 22>;
+                  bindings = <&caps_word>;
+                  layers = <0>;
+                };
+  };
         keymap {
                 compatible = "zmk,keymap";
 
@@ -26,7 +48,7 @@
                                &lt 1 ESC  &lt 2 TAB  &kp SPACE  &kp RET &mo 2 &kp RALT
                         >;
                 };
-                lower_layer {
+                bluetooth_layer {
                         display-name = "BT";
 // -----------------------------------------------------------------------------------------
 // |   |  1    |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
@@ -34,25 +56,55 @@
 // |   |       |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &none    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &none &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &none  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
+   &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
+   &none &bt BT_CLR   &bt BT_PRV   &bt BT_NXT   &none        &none                &none    &none    &none  &none     &none  &none
+   &none &trans       &trans       &trans       &trans       &trans               &trans   &trans   &trans &trans    &trans &trans
                                     &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
                         >;
                 };
 
-                raise_layer {
+                navnum_layer {
+                        display-name = "NAVNUM";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// |  |  €  |  7  |  8  |  9  |  .  |   |  skGUI  |  HOME  |  PGDN  | PGUP |   END   |      |
+// |  |     |  4  |  5  |  6  |  ,  |   |   FN    |  LEFT  |  DOWN  |  UP  |  RIGHT  |      |
+// |  |     |  1  |  2  |  3  |  0  |   |  =      |   +    |   -    |   *  |   /     |      |
+//                | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+   &none &kp LS(N1) &kp N7 &kp N8 &kp N9 &kp KP_DOT     &sk LGUI     &kp HOME    &kp PG_DN    &kp PG_UP       &kp END       &none
+   &none &none      &kp N4 &kp N5 &kp N6 &kp KP_COMMA   &sl 3        &kp LEFT    &kp DOWN     &kp UP          &kp RIGHT     &none
+   &none &none      &kp N1 &kp N2 &kp N3 &kp N0         &kp KP_EQUAL &kp KP_PLUS &kp KP_MINUS &kp KP_ASTERISK &kp KP_DIVIDE &none
+                       &kp LGUI &trans   &kp SPACE      &kp RET   &trans    &kp RALT
                         >;
                 };
+                fn_layer {
+                        display-name = "FN";
+// -----------------------------------------------------------------------------------------
+// |  |     |  F7  |  F8  |  F9  |  |   |  |       |       |      |       |      |
+// |  |     |  F4  |  F5  |  F6  |  |   |  |  GUI  |  ALT  |  CTL |  SFT  |      |
+// |  |     |  F1  |  F2  |  F3  |  |   |  |       |       |      |       |      |
+//                | GUI |     | SPC |   | ENT |     | ALT |
+                        bindings = <
+   &none &none &kp F7 &kp F8 &kp F9 &none     &none &none    &none    &none     &none      &none
+   &none &none &kp F4 &kp F5 &kp F6 &none     &none &kp LGUI &kp LALT &kp LCTRL &kp LSHIFT &none
+   &none &none &kp F1 &kp F2 &kp F3 &none     &none &none    &none    &none     &none      &none
+                       &kp LGUI &trans   &none     &kp RET   &trans    &kp RALT
+                        >;
+                };
+                wm_layer {
+                        display-name = "NIRI";
+// -----------------------------------------------------------------------------------------
+// |  | QUIT |   DISL   |  DISR  |      | RWPR |   |  |  MUTE  | VOLD  | VOLU | CLSW  |      |
+// |  | TERM |          |  LNCH  | CPTR | FULS |   |  |  FOCL  | FOCD  | FOCU | FOCR  |      |
+// |  | RESZ |  TOGTAB  |  CNTR  |      | DISP |   |  |  CONS  | DCSZ  | INSZ | EXPL  |      |
+//                | GUI |     | SPC |   | ENT |     | ALT |
+                        bindings = <
+   &none &kp LG(Q) &kp LG(LBKT) &kp LG(RBKT) &kp F9 &kp LG(T)     &none &kp C_MUTE    &kp C_VOL_DN    &kp C_VOL_UP     &kp LG(BSPC)      &none
+   &none &kp LG(RET) &none &kp LG(D) &kp LG(F) &kp LG(G)    &none &kp LG(LEFT) &kp LG(DOWN) &kp LG(UP) &kp LG(RIGHT) &none
+   &none &kp LG(Z) &kp LG(X) &kp LG(C) &none &kp LG(B)     &none &kp LG(M)    &kp LG(COMMA)    &kp LG(DOT)     &kp LG(FSLH)      &none
+                       &kp LGUI &trans   &none     &kp RET   &trans    &kp RALT
+                        >;
+                };
+
         };
 };
