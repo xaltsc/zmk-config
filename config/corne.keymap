@@ -14,23 +14,30 @@
                    Z X   V B    M COMMA FSLH>;
 };
 
+&mt {
+  tapping-term-ms = <300>;
+};
+&lt {
+  tapping-term-ms = <300>;
+};
+
 / {
         combos {
                 compatible = "zmk,combos";
                 combo_esc {
-                  timeout-ms = <50>;
+                  timeout-ms = <100>;
                   key-positions = <20 21>;
                   bindings = <&kp ESC>;
                   layers = <0 2>;
                 };
                 combo_paste {
-                  timeout-ms = <50>;
+                  timeout-ms = <100>;
                   key-positions = <4 5>;
                   bindings = <&kp K_PASTE>;
                   layers = <0>;
                 };
                 combo_capsword {
-                  timeout-ms = <50>;
+                  timeout-ms = <100>;
                   key-positions = <13 22>;
                   bindings = <&caps_word>;
                   layers = <0>;
