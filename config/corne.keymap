@@ -44,8 +44,8 @@
                         bindings = <
    &none &kp Q        &kp W       &kp E      &kp R      &kp T   &kp Y &kp U       &kp I      &kp O       &kp P           &none
    &none &mt LSHIFT A &mt LCTRL S &mt LALT D &mt LGUI F &kp G   &kp H &mt RGUI J  &mt LALT K &mt RCTRL L &mt RSHIFT SEMI &none
-   &none &kp Z        &kp X       &kp C      &kp V      &kp B   &kp N &kp M       &kp COMMA  &kp DOT     &kp FSLH        &none
-                               &lt 1 ESC  &lt 2 TAB  &kp SPACE  &kp RET &mo 2 &kp RALT
+   &none &lt 1 Z      &kp X       &kp C      &kp V      &kp B   &kp N &kp M       &kp COMMA  &kp DOT     &kp FSLH        &none
+                &mt LSHIFT ESC  &mt LCTRL TAB  &mt LALT SPACE  &lt 4 RET &lt 2 BSPC &kp RALT
                         >;
                 };
                 bluetooth_layer {
@@ -59,7 +59,7 @@
    &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
    &none &bt BT_CLR   &bt BT_PRV   &bt BT_NXT   &none        &none                &none    &none    &none  &none     &none  &none
    &none &trans       &trans       &trans       &trans       &trans               &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+                &mt LSHIFT ESC  &mt LCTRL TAB  &mt LALT SPACE  &lt 4 RET &lt 2 BSPC &kp RALT
                         >;
                 };
 
@@ -74,7 +74,7 @@
    &none &kp LS(N1) &kp N7 &kp N8 &kp N9 &kp KP_DOT     &sk LGUI     &kp HOME    &kp PG_DN    &kp PG_UP       &kp END       &none
    &none &none      &kp N4 &kp N5 &kp N6 &kp KP_COMMA   &sl 3        &kp LEFT    &kp DOWN     &kp UP          &kp RIGHT     &none
    &none &none      &kp N1 &kp N2 &kp N3 &kp N0         &kp KP_EQUAL &kp KP_PLUS &kp KP_MINUS &kp KP_ASTERISK &kp KP_DIVIDE &none
-                       &kp LGUI &trans   &kp SPACE      &kp RET   &trans    &kp RALT
+                &mt LSHIFT ESC  &mt LCTRL TAB  &mt LALT SPACE  &lt 4 RET &lt 2 BSPC &kp RALT
                         >;
                 };
                 fn_layer {
@@ -88,7 +88,7 @@
    &none &none &kp F7 &kp F8 &kp F9 &none     &none &none    &none    &none     &none      &none
    &none &none &kp F4 &kp F5 &kp F6 &none     &none &kp LGUI &kp LALT &kp LCTRL &kp LSHIFT &none
    &none &none &kp F1 &kp F2 &kp F3 &none     &none &none    &none    &none     &none      &none
-                       &kp LGUI &trans   &none     &kp RET   &trans    &kp RALT
+                &mt LSHIFT ESC  &mt LCTRL TAB  &mt LALT SPACE  &lt 4 RET &lt 2 BSPC &kp RALT
                         >;
                 };
                 wm_layer {
@@ -102,7 +102,7 @@
    &none &kp LG(Q) &kp LG(LBKT) &kp LG(RBKT) &kp F9 &kp LG(T)     &none &kp C_MUTE    &kp C_VOL_DN    &kp C_VOL_UP     &kp LG(BSPC)      &none
    &none &kp LG(RET) &none &kp LG(D) &kp LG(F) &kp LG(G)    &none &kp LG(LEFT) &kp LG(DOWN) &kp LG(UP) &kp LG(RIGHT) &none
    &none &kp LG(Z) &kp LG(X) &kp LG(C) &none &kp LG(B)     &none &kp LG(M)    &kp LG(COMMA)    &kp LG(DOT)     &kp LG(FSLH)      &none
-                       &kp LGUI &trans   &none     &kp RET   &trans    &kp RALT
+                &mt LSHIFT ESC  &mt LCTRL TAB  &mt LALT SPACE  &lt 4 RET &lt 2 BSPC &kp RALT
                         >;
                 };
 
